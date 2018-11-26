@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FixChildLableGroup">
+        <attr name="num" format="integer"></attr>
+    </declare-styleable>
+    <declare-styleable name="MoneyTextView">
+        <attr name="unit" format="string"></attr>
+        <attr name="android:text"/>
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="sameSize" format="boolean"/>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/normal"
+    >
+    <TextView
+        android:id="@+id/tvEditor"
+        android:padding="@dimen/dp_10"
+        style="@style/text"
+        android:text="编辑"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@color/white"
+        />
+    <TextView
+        android:id="@+id/tvDelete"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:padding="@dimen/dp_10"
+        style="@style/text"
+        android:text="删除"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/tvCancel"
+        android:layout_marginTop="5dp"
+        android:padding="@dimen/dp_10"
+        style="@style/text"
+        android:text="取消"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@color/white"
+        />
+</LinearLayout>

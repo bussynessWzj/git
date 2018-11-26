@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10">
+
+            <TextView
+                android:id="@+id/tvClose"
+                style="@style/text"
+                android:layout_alignParentRight="true"
+                android:text="关闭"
+                android:textColor="@color/normal" />
+
+            <TextView
+                android:id="@+id/tvPopTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="选择供应商" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="生产批次" />
+
+            <EditText
+                android:id="@+id/etBactch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="生产批次" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="生产日期" />
+
+            <EditText
+                android:focusable="false"
+                android:id="@+id/etProductionData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="生产日期" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="有效期至" />
+
+            <EditText
+                android:focusable="false"
+                android:id="@+id/etValidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="有效期至" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="单价" />
+
+            <EditText
+                android:id="@+id/etUnitPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="单价" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="零售价" />
+
+            <EditText
+                android:id="@+id/etRetailPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="零售价" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="入库数量" />
+
+            <EditText
+                android:id="@+id/etNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="入库数量" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="总价" />
+
+            <TextView
+                android:id="@+id/etTotalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="总价" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/normal"
+                android:text="取消"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnSure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/red"
+                android:text="确定"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

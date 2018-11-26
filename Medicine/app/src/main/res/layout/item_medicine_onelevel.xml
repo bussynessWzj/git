@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="@dimen/dp_100"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border"
+    android:id="@+id/ll"
+    >
+    <View
+        android:layout_marginLeft="@dimen/dp_8"
+        android:id="@+id/view"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        />
+    <TextView
+        android:padding="@dimen/dp_10"
+        android:id="@+id/tvName"
+        style="@style/text"
+        android:text="中药片"
+        />
+</LinearLayout>
