@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.hszl.medicine.R;
 import com.hszl.medicine.entity.SPUtils;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.entity.User;
 import com.hszl.medicine.http.HttpInterface;
 import com.hszl.medicine.utils.Constant;
@@ -79,15 +80,23 @@ public class UpdatePwdActivity extends BaseActivity {
         String json=DataUtils.toJson(map);
         HttpInterface service=Constant.retrofit.create(HttpInterface.class);
         RequestBody body=RequestBody.create(MediaType.parse("application/json,charset=utf-8"),json);
-        Call<ResponseBody> call=service.UpdatePwd(body);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<Update> call=service.UpdatePwd(body);
+        call.enqueue(new Callback<Update>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(UpdatePwdActivity.this,"更新成功",Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<Update> call, Response<Update> response) {
+                Update update
+                        =response.body();
+                if (update.getSuccess()==1) {
+                    Toast.makeText(UpdatePwdActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
+                    UpdatePwdActivity.this.finish();
+                }else
+                {
+                    Toast.makeText(UpdatePwdActivity.this, update.getMsg(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<Update> call, Throwable t) {
                 Toast.makeText(UpdatePwdActivity.this,"更新失败",Toast.LENGTH_SHORT).show();
             }
         });

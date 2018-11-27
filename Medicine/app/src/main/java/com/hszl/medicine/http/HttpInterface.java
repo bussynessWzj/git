@@ -9,6 +9,7 @@ import com.hszl.medicine.entity.Stock;
 import com.hszl.medicine.entity.Supplier;
 import com.hszl.medicine.entity.SupplierType;
 import com.hszl.medicine.entity.Unit;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.entity.User;
 import com.hszl.medicine.entity.WarehouseIn;
 
@@ -42,19 +43,19 @@ public interface HttpInterface {
      Call<Medicine>  getMedicine(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("DrugIn")
-     Call<ResponseBody>  commitStockIn(@Body RequestBody route);
+     Call<Update>  commitStockIn(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("SaveStorageCategory")
-     Call<ResponseBody>  updateStock(@Body RequestBody route);
+     Call<Update>  updateStock(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("SaveSupplierInfo")
-     Call<ResponseBody>  updateSupplier(@Body RequestBody route);
+     Call<Update>  updateSupplier(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("GetSupplierCategorys")
      Call<SupplierType>  getSupplierType(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("SaveSupplierCategory")
-     Call<ResponseBody>  updateSupplierType(@Body RequestBody route);
+     Call<Update>  updateSupplierType(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("GetFirstDrugCategorys")
      Call<MedicineOneLevel>  getMedicineOneLevel(@Body RequestBody route);
@@ -63,7 +64,7 @@ public interface HttpInterface {
      Call<MedicineTwoLevel>  getMedicineTwoLevel(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("SaveDrugCategory")
-     Call<ResponseBody>  AddMedicineType(@Body RequestBody route);
+     Call<Update>  AddMedicineType(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("GetDictionaryByCode")
      Call<DosageForm>  getDosageForm(@Body RequestBody route);
@@ -72,22 +73,22 @@ public interface HttpInterface {
      Call<Unit>  getUnit(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("SaveDrugInfo")
-     Call<ResponseBody>  saveMedicineInfo(@Body RequestBody route);
+     Call<Update>  saveMedicineInfo(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("UserUpdate")
-     Call<ResponseBody>  UpdatePwd(@Body RequestBody route);
+     Call<Update>  UpdatePwd(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("DeleteDrugInfo")
-     Call<ResponseBody>  deleteMedicineInfo(@Body RequestBody route);
+     Call<Update>  deleteMedicineInfo(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("DeleteStorageCategory")
-     Call<ResponseBody>  deleteStock(@Body RequestBody route);
+     Call<Update>  deleteStock(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("DeleteSupplierInfo")
-     Call<ResponseBody>  deleteSupplierInfo(@Body RequestBody route);
+     Call<Update>  deleteSupplierInfo(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("DeleteSupplierCategory")
-     Call<ResponseBody>  deleteSupplierType(@Body RequestBody route);
+     Call<Update>  deleteSupplierType(@Body RequestBody route);
      @Headers({"Content-Type: application/json","Accept: application/json"})
      @POST("GetDrugStatics")
      Call<Report> getReportData(@Body RequestBody route);

@@ -21,6 +21,7 @@ import com.hszl.medicine.adapter.SupplierAdapter;
 import com.hszl.medicine.adapter.SupplierPopAdapter;
 import com.hszl.medicine.entity.Stock;
 import com.hszl.medicine.entity.Supplier;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.http.HttpInterface;
 import com.hszl.medicine.utils.Constant;
 import com.hszl.medicine.utils.DataUtils;
@@ -203,16 +204,23 @@ public class UpdateSupplierInfo extends BaseActivity implements SwitchView.OnSta
         String json = DataUtils.toJson(map);
         HttpInterface service = Constant.retrofit.create(HttpInterface.class);
         RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json);
-        Call<ResponseBody> call = service.updateSupplier(body);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<Update> call = service.updateSupplier(body);
+        call.enqueue(new Callback<Update>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(UpdateSupplierInfo.this, "提交成功", Toast.LENGTH_SHORT).show();
-                UpdateSupplierInfo.this.finish();
+            public void onResponse(Call<Update> call, Response<Update> response) {
+                Update update
+                        =response.body();
+                if (update.getSuccess()==1) {
+                    Toast.makeText(UpdateSupplierInfo.this, "提交成功", Toast.LENGTH_SHORT).show();
+                    UpdateSupplierInfo.this.finish();
+                }else
+                {
+                    Toast.makeText(UpdateSupplierInfo.this, update.getMsg(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<Update> call, Throwable t) {
                 Toast.makeText(UpdateSupplierInfo.this, "提交失败", Toast.LENGTH_SHORT).show();
             }
         });

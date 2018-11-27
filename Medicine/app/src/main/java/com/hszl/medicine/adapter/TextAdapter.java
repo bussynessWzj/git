@@ -11,6 +11,7 @@ import com.hszl.medicine.inerface.MyItemClickListener;
 
 import java.util.List;
 
+@Deprecated
 public class TextAdapter implements Adapter {
     List<MainTest> list;
     MyItemClickListener myItemClickListener;

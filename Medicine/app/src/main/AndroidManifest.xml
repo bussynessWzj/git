@@ -12,35 +12,42 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        android:name=".app.App"
-    >
+        android:name=".app.App">
+        <activity android:name=".MainActivity1"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".activity.BaseActivity"></activity>
-        <activity android:name=".activity.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.MedicineActivity"></activity>
-        <activity android:name=".activity.MedicineInfoActivity"></activity>
-        <activity android:name=".activity.MedicineListActivity"></activity>
-        <activity android:name=".activity.MedicineTypeActivity"></activity>
-        <activity android:name=".activity.StockInActivity"></activity>
-        <activity android:name=".activity.StockInfoActivity"></activity>
-        <activity android:name=".activity.SupplierInfoActivity"></activity>
+        <activity android:name=".activity.StockMedicineReportActivity"></activity>
+        <activity android:name=".activity.StatisticsReportActivity"></activity>
+        <activity android:name=".activity.SalerReportActivity"></activity>
+        <activity android:name=".activity.MedicineInventoryReportActivity"></activity>
+        <activity android:name=".activity.ReceivingReportActivity"></activity>
         <activity android:name=".activity.SupplierTypeActivity"></activity>
-        <activity android:name=".activity.UpdateMedicineActivity"></activity>
+        <activity android:name=".activity.SupplierInfoActivity"></activity>
+        <activity android:name=".activity.StockInfoActivity"></activity>
+        <activity android:name=".activity.MedicineInfoActivity"></activity>
+        <activity android:name=".activity.UpdatePwdActivity"></activity>
         <activity android:name=".activity.UpdateMedicineInfoActivity"></activity>
+        <activity android:name=".activity.ChooseMedicineTypeActivity"></activity>
+        <activity android:name=".activity.SaveMedicineTypeActivity"></activity>
+        <activity android:name=".activity.MedicineTypeActivity"></activity>
         <activity android:name=".activity.UpdateStockActivity"></activity>
         <activity android:name=".activity.UpdateSupplierInfo"></activity>
         <activity android:name=".activity.UpdateSupplierTypeActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".activity.SaveMedicineTypeActivity"></activity>
-        <activity android:name=".activity.ChooseMedicineTypeActivity"></activity>
-        <activity android:name=".activity.StatisticsReportActivity"></activity>
-        <activity android:name=".activity.StockMedicineReportActivity"></activity>
-        <activity android:name=".MainActivity1"></activity>
+        <activity android:name=".activity.UpdateMedicineActivity"></activity>
+        <activity android:name=".activity.StockInActivity"></activity>
+        <activity android:name=".activity.MedicineListActivity"></activity>
+        <activity android:name=".activity.MedicineActivity"></activity>
+        <activity android:name=".activity.LoginActivity">
+
+        </activity>
+        <activity android:name=".Test"></activity>
+        <activity android:name=".activity.MyActivity"></activity>
+        <activity android:name=".activity.SaleOrderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -34,6 +34,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * 因为赶时间  粗略的自定义控件一次性动态显示自定义viewgroup内部的子控件，并且不支持
+ * 当数据源改变时notifyDataSetChanged动态添加数据，适配器模式使用也是错误的使用方式
+ * 正确的用法在MainActivity1中，使自定义viewgroup和adapter动态分离，使用面向接口的形式
+ * 进行viewgroup和adapter的关联，并且添加了观察者模式来监测当adapter数据源发生变化时，
+ * viewgroup和adapter关联的接口也就是观察者做出相应的改变来重新绘制viewgroup数据源，所以
+ * 该activity废弃 改用MainActivity1
+ */
+@Deprecated
 public class MainActivity extends BaseActivity implements MyItemClickListener {
 
     FixChildLableGroup lgStatistics,fclgSaler,fclgPaymentReceived,fclgStock,fclgBasicData,fclgReport;

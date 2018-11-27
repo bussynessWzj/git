@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.hszl.medicine.R;
 import com.hszl.medicine.entity.Supplier;
 import com.hszl.medicine.entity.SupplierType;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.http.HttpInterface;
 import com.hszl.medicine.utils.Constant;
 import com.hszl.medicine.utils.DataUtils;
@@ -115,16 +116,23 @@ public class UpdateSupplierTypeActivity extends BaseActivity implements SwitchVi
         String json = DataUtils.toJson(map);
         HttpInterface service = Constant.retrofit.create(HttpInterface.class);
         RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json);
-        Call<ResponseBody> call = service.updateSupplierType(body);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<Update> call = service.updateSupplierType(body);
+        call.enqueue(new Callback<Update>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(UpdateSupplierTypeActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
-                UpdateSupplierTypeActivity.this.finish();
+            public void onResponse(Call<Update> call, Response<Update> response) {
+                Update update
+                        =response.body();
+                if (update.getSuccess()==1) {
+                    Toast.makeText(UpdateSupplierTypeActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
+                    UpdateSupplierTypeActivity.this.finish();
+                }else
+                {
+                    Toast.makeText(UpdateSupplierTypeActivity.this, update.getMsg(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<Update> call, Throwable t) {
                 Toast.makeText(UpdateSupplierTypeActivity.this, "提交失败", Toast.LENGTH_SHORT).show();
             }
         });

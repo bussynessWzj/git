@@ -10,6 +10,8 @@ import com.hszl.medicine.R;
 import com.hszl.medicine.entity.MainTest;
 
 import com.hszl.medicine.inerface.BaseAdapter;
+import com.hszl.medicine.inerface.Observer;
+import com.hszl.medicine.inerface.ViewGroupInterface;
 
 import java.util.List;
 
@@ -31,5 +33,10 @@ public class TexTAdapterModelTest1 extends BaseAdapter<MainTest> {
         num.setText(data.getStr1());
         tvContent.setText(data.getStr2());
         return view;
+    }
+
+    @Override
+    public void notifyDataSetChange() {
+        super.notifyDataSetChange();
     }
 }

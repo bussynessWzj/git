@@ -15,6 +15,7 @@ import com.hszl.medicine.inerface.MyItemClickListener;
 
 import java.util.List;
 
+@Deprecated
 public class ImageAdapter implements Adapter ,View.OnClickListener {
 
     List<MainTest2> list;

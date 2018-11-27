@@ -26,12 +26,12 @@ import java.util.List;
 
 public class ViewGroupTest extends ViewGroup {
 
-    ViewGroupInterface viewGroupInterface;
-    MyItemClickListener myItemClickListener;
-
-    public void setMyItemClickListener(MyItemClickListener myItemClickListener) {
-        this.myItemClickListener = myItemClickListener;
-    }
+//    ViewGroupInterface viewGroupInterface;
+//    MyItemClickListener myItemClickListener;
+//
+//    public void setMyItemClickListener(MyItemClickListener myItemClickListener) {
+//        this.myItemClickListener = myItemClickListener;
+//    }
 
     MeasureSpec mWidthMeasureSpec,mHeightMeasureSpec;
 
@@ -115,7 +115,7 @@ public class ViewGroupTest extends ViewGroup {
         int mWidth = 0;       //记录当前控件的宽（包括padding属性）
         int mHeight = 0;      //记录当前控件的高(包括padding属性)
         fixSize = widthSize / num;
-        for (int i = 0; i < mCount; i++) {
+        for (int i = 0; i < getChildCount(); i++) {
             View view=getChildAt(i);
             measureChild(view,widthMeasureSpec,heightMeasureSpec);
             mWidth = view.getMeasuredWidth() + view.getPaddingRight() + view.getPaddingLeft();
@@ -152,10 +152,10 @@ public class ViewGroupTest extends ViewGroup {
         int startY = getPaddingTop();
         int startX = getPaddingLeft();
         int maxHeight = 0;
-        for (int i = 0; i < mCount; i++) {
-            View view=adapter.getView(this,i);
+        for (int i = 0; i < getChildCount(); i++) {
+            View view=getChildAt(i);
             //需要从新测量
-            view.measure(getMeasuredWidth(),getMeasuredHeight());
+//            view.measure(getMeasuredWidth(),getMeasuredHeight());
             int count=this.getChildCount();
             int width = view.getMeasuredWidth() + view.getPaddingLeft() + view.getPaddingRight();
             int height = view.getMeasuredHeight() + view.getPaddingTop() + view.getPaddingBottom();
@@ -192,10 +192,10 @@ public class ViewGroupTest extends ViewGroup {
     //        }
     //    }
 
-    public void setAdapter(TexTAdapterModelTest1 adapter) {
-        this.adapter = adapter;
-        requestLayout();//重新布局
-    }
+//    public void setAdapter(TexTAdapterModelTest1 adapter) {
+//        this.adapter = adapter;
+//        requestLayout();//重新布局
+//    }
 
 
 }

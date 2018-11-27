@@ -29,6 +29,7 @@ import com.hszl.medicine.entity.SPUtils;
 import com.hszl.medicine.entity.Stock;
 import com.hszl.medicine.entity.StockIn;
 import com.hszl.medicine.entity.Supplier;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.entity.User;
 import com.hszl.medicine.entity.WarehouseIn;
 import com.hszl.medicine.http.HttpInterface;
@@ -363,15 +364,24 @@ public class StockInActivity extends BaseActivity implements BaseQuickAdapter.On
         String json = gson.toJson(stockIn);
         HttpInterface service = Constant.retrofit.create(HttpInterface.class);
         RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json);
-        retrofit2.Call<ResponseBody> call = service.commitStockIn(body);
-        call.enqueue(new Callback<ResponseBody>() {
+        retrofit2.Call<Update> call = service.commitStockIn(body);
+        call.enqueue(new Callback<Update>() {
             @Override
-            public void onResponse(retrofit2.Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(StockInActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
+            public void onResponse(retrofit2.Call<Update> call, Response<Update> response) {
+                Update update
+                        =response.body();
+                if (update.getSuccess()==1) {
+                    Toast.makeText(StockInActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
+                }else
+                {
+                    Toast.makeText(StockInActivity.this, update.getMsg(), Toast.LENGTH_SHORT).show();
+                }
+//
+//                Toast.makeText(StockInActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(retrofit2.Call<ResponseBody> call, Throwable t) {
+            public void onFailure(retrofit2.Call<Update> call, Throwable t) {
                 Toast.makeText(StockInActivity.this, "提交失败", Toast.LENGTH_SHORT).show();
             }
         });

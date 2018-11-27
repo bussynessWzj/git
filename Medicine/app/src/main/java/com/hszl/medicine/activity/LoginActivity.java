@@ -114,8 +114,8 @@ public class LoginActivity extends BaseActivity {
                     Intent intent=new Intent();
                     intent.setClass(LoginActivity.this,MainActivity1.class);
                     LoginActivity.this.startActivity(intent);
+                    Log.e("user",user.getUsername());
                 }
-                Log.e("user",user.getUsername());
             }
 
             @Override

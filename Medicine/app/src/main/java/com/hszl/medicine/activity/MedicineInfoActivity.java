@@ -26,6 +26,7 @@ import com.hszl.medicine.adapter.CopyMedicineTwoLevelAdapter;
 import com.hszl.medicine.entity.Medicine;
 import com.hszl.medicine.entity.MedicineOneLevel;
 import com.hszl.medicine.entity.MedicineTwoLevel;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.http.HttpInterface;
 import com.hszl.medicine.utils.Constant;
 import com.hszl.medicine.utils.DataUtils;
@@ -405,17 +406,28 @@ public class MedicineInfoActivity extends BaseActivity implements BaseQuickAdapt
         String json=DataUtils.toJson(map);
         HttpInterface service=Constant.retrofit.create(HttpInterface.class);
         RequestBody body=RequestBody.create(MediaType.parse("application/json;charset=utf-8"),json);
-        Call<ResponseBody> call=service.deleteMedicineInfo(body);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<Update> call=service.deleteMedicineInfo(body);
+        call.enqueue(new Callback<Update>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                list.remove(listBean);
-                adapter.notifyDataSetChanged();
-                Toast.makeText(MedicineInfoActivity.this,"删除成功",Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<Update> call, Response<Update> response) {
+                Update update
+                        =response.body();
+                if (update.getSuccess()==1) {
+                    Toast.makeText(MedicineInfoActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+                    list.remove(listBean);
+                    adapter.notifyDataSetChanged();
+                }else
+                {
+                    Toast.makeText(MedicineInfoActivity.this, update.getMsg(), Toast.LENGTH_SHORT).show();
+                }
+
+//                list.remove(listBean);
+//                adapter.notifyDataSetChanged();
+//                Toast.makeText(MedicineInfoActivity.this,"删除成功",Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<Update> call, Throwable t) {
 
             }
         });

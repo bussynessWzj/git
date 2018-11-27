@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.hszl.medicine.R;
 import com.hszl.medicine.entity.Stock;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.http.HttpInterface;
 import com.hszl.medicine.utils.Constant;
 import com.hszl.medicine.utils.DataUtils;
@@ -149,16 +150,23 @@ public class UpdateStockActivity extends BaseActivity implements SwitchView.OnSt
             String json=DataUtils.toJson(map);
             HttpInterface service=Constant.retrofit.create(HttpInterface.class);
             RequestBody body=RequestBody.create(MediaType.parse("application/json; charset=utf-8"),json);
-            Call<ResponseBody> call=service.updateStock(body);
-            call.enqueue(new Callback<ResponseBody>() {
+            Call<Update> call=service.updateStock(body);
+            call.enqueue(new Callback<Update>() {
                 @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    Toast.makeText(UpdateStockActivity.this,"提交成功",Toast.LENGTH_SHORT).show();
-                    UpdateStockActivity.this.finish();
+                public void onResponse(Call<Update> call, Response<Update> response) {
+                    Update update
+                            =response.body();
+                    if (update.getSuccess()==1) {
+                        Toast.makeText(UpdateStockActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
+                        UpdateStockActivity.this.finish();
+                    }else
+                    {
+                        Toast.makeText(UpdateStockActivity.this, update.getMsg(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                public void onFailure(Call<Update> call, Throwable t) {
                     Toast.makeText(UpdateStockActivity.this,"提交失败",Toast.LENGTH_SHORT).show();
                 }
             });

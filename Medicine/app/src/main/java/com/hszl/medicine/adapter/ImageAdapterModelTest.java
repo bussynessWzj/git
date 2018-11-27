@@ -11,6 +11,7 @@ import com.hszl.medicine.entity.MainTest2;
 
 import java.util.List;
 
+@Deprecated
 public class ImageAdapterModelTest extends AdapterModelTest<MainTest2> {
 
     public ImageAdapterModelTest(List<MainTest2> list, Context context) {

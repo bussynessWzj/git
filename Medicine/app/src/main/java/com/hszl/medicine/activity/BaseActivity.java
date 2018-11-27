@@ -1,6 +1,7 @@
 package com.hszl.medicine.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,11 +13,12 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.hszl.medicine.MainActivity1;
 import com.hszl.medicine.R;
 
 import java.lang.reflect.Field;
 
-public abstract class BaseActivity extends Activity implements View.OnClickListener ,RadioGroup.OnCheckedChangeListener {
+public class BaseActivity extends Activity implements View.OnClickListener ,RadioGroup.OnCheckedChangeListener {
 
 
     public RelativeLayout ll_decor;
@@ -233,8 +235,23 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-
+        int id=group.getCheckedRadioButtonId();
+        Intent intent=new Intent();
+        switch (id)
+        {
+            case R.id.btnMain:
+                intent.setClass(this,MainActivity1.class);
+                startActivity(intent);
+                break;
+            case R.id.btnMe:
+                intent.setClass(this,MyActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
-    public abstract boolean validation();
+    public boolean validation()
+    {
+        return false;
+    }
 }

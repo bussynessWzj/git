@@ -24,6 +24,7 @@ import com.hszl.medicine.entity.DosageForm;
 import com.hszl.medicine.entity.Medicine;
 import com.hszl.medicine.entity.MedicineLevel;
 import com.hszl.medicine.entity.Unit;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.http.HttpInterface;
 import com.hszl.medicine.utils.Constant;
 import com.hszl.medicine.utils.DataUtils;
@@ -376,15 +377,23 @@ public class UpdateMedicineInfoActivity extends BaseActivity implements BaseQuic
         String json=DataUtils.toJson(map);
         HttpInterface service=Constant.retrofit.create(HttpInterface.class);
         RequestBody body=RequestBody.create(MediaType.parse("application/json; charset=utf-8"),json);
-        Call<ResponseBody> call=service.saveMedicineInfo(body);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<Update> call=service.saveMedicineInfo(body);
+        call.enqueue(new Callback<Update>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(UpdateMedicineInfoActivity.this,"添加成功",Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<Update> call, Response<Update> response) {
+                Update update
+                        =response.body();
+                if (update.getSuccess()==1) {
+                    Toast.makeText(UpdateMedicineInfoActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
+                    UpdateMedicineInfoActivity.this.finish();
+                }else
+                {
+                    Toast.makeText(UpdateMedicineInfoActivity.this, update.getMsg(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<Update> call, Throwable t) {
                 Toast.makeText(UpdateMedicineInfoActivity.this,"添加失败",Toast.LENGTH_SHORT).show();
             }
         });

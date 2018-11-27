@@ -8,6 +8,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.hszl.medicine.R;
+import com.hszl.medicine.entity.Update;
 import com.hszl.medicine.http.HttpInterface;
 import com.hszl.medicine.utils.Constant;
 import com.hszl.medicine.utils.DataUtils;
@@ -88,15 +89,22 @@ public class SaveMedicineTypeActivity extends BaseActivity {
         String json=DataUtils.toJson(map);
         HttpInterface service=Constant.retrofit.create(HttpInterface.class);
         RequestBody body=RequestBody.create(MediaType.parse("application/json; charset=utf-8"),json);
-        Call<ResponseBody> call=service.AddMedicineType(body);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<Update> call=service.AddMedicineType(body);
+        call.enqueue(new Callback<Update>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(SaveMedicineTypeActivity.this,"添加成功",Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<Update> call, Response<Update> response) {
+                Update update
+                        =response.body();
+                if (update.getSuccess()==1) {
+                    Toast.makeText(SaveMedicineTypeActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
+                }else
+                {
+                    Toast.makeText(SaveMedicineTypeActivity.this, update.getMsg(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<Update> call, Throwable t) {
                 Toast.makeText(SaveMedicineTypeActivity.this,"添加失败",Toast.LENGTH_SHORT).show();
             }
         });
