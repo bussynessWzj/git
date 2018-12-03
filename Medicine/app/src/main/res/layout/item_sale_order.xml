@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.hszl.medicine.view.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/sv"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -245,5 +247,101 @@
                 android:layout_width="match_parent"
                 android:text="20184556454568465456595656" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_8">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="销售时间" />
+
+            <TextView
+                style="@style/text"
+                android:layout_width="match_parent"
+                android:text="20184556454568465456595656" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_8">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="销售时间" />
+
+            <TextView
+                style="@style/text"
+                android:layout_width="match_parent"
+                android:text="20184556454568465456595656" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_8">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="销售时间" />
+
+            <TextView
+                style="@style/text"
+                android:layout_width="match_parent"
+                android:text="20184556454568465456595656" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_8">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="销售时间" />
+
+            <TextView
+                style="@style/text"
+                android:layout_width="match_parent"
+                android:text="20184556454568465456595656" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_8">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="销售时间" />
+
+            <TextView
+                style="@style/text"
+                android:layout_width="match_parent"
+                android:text="20184556454568465456595656" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_8">
+
+            <TextView
+                style="@style/text"
+                android:layout_width="@dimen/dp_100"
+                android:text="销售时间" />
+
+            <TextView
+                style="@style/text"
+                android:layout_width="match_parent"
+                android:text="20184556454568465456595656" />
+        </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</com.hszl.medicine.view.MyScrollView>

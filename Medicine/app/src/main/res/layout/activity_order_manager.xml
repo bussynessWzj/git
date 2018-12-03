@@ -31,10 +31,11 @@
             />
 
     </RelativeLayout>
-    <android.support.v7.widget.RecyclerView
+    <com.hszl.medicine.view.MyRecyclerView
         android:id="@+id/rvInfo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
-    </android.support.v7.widget.RecyclerView>
+    </com.hszl.medicine.view.MyRecyclerView>
 </LinearLayout>

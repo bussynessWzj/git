@@ -1,8 +1,10 @@
 package com.hszl.medicine.adapter;
 
 import android.support.annotation.Nullable;
+import android.widget.ScrollView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.hszl.medicine.R;
 import com.hszl.medicine.entity.AAA;
 import com.hszl.medicine.utils.Viewholder;
 
@@ -16,6 +18,6 @@ public class SaleOrderAdapter extends BaseQuickAdapter<AAA,Viewholder> {
 
     @Override
     protected void convert(Viewholder viewholder, AAA aaa) {
-
+        ScrollView sv =viewholder.getView(R.id.sv);
     }
 }

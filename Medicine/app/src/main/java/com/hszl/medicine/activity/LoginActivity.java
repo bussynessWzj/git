@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -34,7 +35,8 @@ import retrofit2.Response;
 
 public class LoginActivity extends BaseActivity {
 
-    LinearLayout llTop;
+//    LinearLayout llTop;
+    RelativeLayout rlContent;
     Button btnLogin;
     EditText etName,etPwd;
     String json="{\n" +
@@ -48,7 +50,7 @@ public class LoginActivity extends BaseActivity {
         initLayout(R.layout.activity_login);
         initView();
         hideBottom();
-        ImmersionUtils.immersionTop(this,llTop);
+        ImmersionUtils.immersionTop(this,rlContent);
         hideTop();
     }
 
@@ -64,7 +66,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void initView() {
-        llTop=findViewById(R.id.llTop);
+        rlContent=findViewById(R.id.rlContent);
         btnLogin=findViewById(R.id.btnLogin);
         etName=findViewById(R.id.etName);
         etPwd=findViewById(R.id.etPwd);
