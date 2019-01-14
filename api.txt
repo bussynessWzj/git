@@ -1,0 +1,571 @@
+1.仓库信息 
+ 访问地址: 192.168.1.222：8006/MobileApi/GetStorageCategorys
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+ 
+2.保存仓库信息
+
+  访问地址: 192.168.1.222：8006/MobileApi/SaveStorageCategory
+  数据主键：keyValue  //keyValue =""为添加   keyValue !="" 为编辑
+  名称：Name
+  编号：Code
+  地址: Address
+  联系人电话: Tel
+  联系人: Contact
+  状态：Status
+
+3.删除仓库信息 
+ 访问地址: 192.168.1.222：8006/MobileApi/DeleteStorageCategory
+
+   数据主键：keyValue
+
+
+
+4.供应商分类
+ 访问地址: 192.168.1.222：8006/MobileApi/GetSupplierCategorys
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+5.保存供应商分类
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/SaveSupplierCategory
+
+  数据主键：keyValue  //keyValue =""为添加   keyValue !="" 为编辑
+  名称：Name
+  编号：Code
+  状态：Status
+
+6.删除供应商分类 
+ 访问地址: 192.168.1.222：8006/MobileApi/DeleteSupplierCategory
+
+   数据主键：keyValue
+
+
+7.供应商信息 
+ 访问地址: 192.168.1.222：8006/MobileApi/GetSupplierInfos
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+
+8.保存供应商信息 
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/SaveSupplierInfo
+
+  数据主键：keyValue  //keyValue =""为添加   keyValue !="" 为编辑
+  名称：Name
+  编号：Code
+  供应商类型：SupplierCategoryID
+  地址：Address
+  电话：Tel
+  手机：Phone
+  传真：Fax
+  邮件: Email
+  状态：Status
+
+
+
+9.删除供应商信息 
+ 访问地址: 192.168.1.222：8006/MobileApi/DeleteSupplierInfo
+
+   数据主键：keyValue
+
+
+10.药品分类第一级 
+ 访问地址: 192.168.1.222：8006/MobileApi/GetFirstDrugCategorys
+
+   无参数
+
+11.药品分类第二级 
+ 访问地址: 192.168.1.222：8006/MobileApi/GetTwoDrugCategorys
+
+   第一级分类ID：parentid //parentid="" 所有的第二级分类  parentid!="" 根据第一级分类查询第二级分类
+
+
+
+12.药品基本信息 
+ 访问地址: 192.168.1.222：8006/MobileApi/GetDrugInfos
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   药品分类ID：drugtypeid
+
+
+13.保存药品基本信息 
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/SaveDrugInfo
+
+  数据主键：keyValue  //keyValue =""为添加   keyValue !="" 为编辑
+  药品分类：DrugCategoryID
+  药品编码：DrugCode
+  药品名称：DrugName
+  药品条码： BarCode
+  通用名称：CommonName
+  规格：Specs
+  剂型：DosageForm
+  产地：Origin
+  生产厂家：Manufacturers
+  批准文号：ApprovedNumber
+  单位：Unit
+  状态：Status
+
+
+14.删除药品基本信息 
+ 访问地址: 192.168.1.222：8006/MobileApi/DeleteDrugInfo
+
+   数据主键：keyValue
+
+
+15 入库管理-查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugInQuery
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+
+16 入库管理 -明细查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugInQueryDetail
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   入库单ID：DrugInStorageID
+
+17.入库单录入
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/DrugIn
+
+  入库单编号：Code
+  供应商：SupplierInfoID
+  仓库ID：StorageCategoryID
+  备注：Remark
+  申请人：CurrentUserID
+
+  录入药品信息  List   //json数组
+    药品ID：DrugID
+    生产批号：ProductionNumber
+    生产日期：ProductionDate
+    有效期至：ValidityDate
+    数量：DrugCount
+    单价：Price
+    零售价：Amount
+
+
+18 药品库存统计
+
+ 访问地址: 192.168.1.222：8006/MobileApi/GetDrugStatics
+
+  药品分类ID：typeid   “”为所有类型   ！=“”为所选类型
+
+
+
+19 获取入库单编号
+
+ 访问地址: 192.168.1.222：8006/MobileApi/GetBillNumber
+
+
+20 登录
+
+ 访问地址: 192.168.1.222：8006/MobileApi/UserLogin
+
+  用户名：UserName
+  密码  ：UserPwd
+
+21.保存药品分类
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/SaveDrugCategory
+
+  编号：Code
+  分类名称：Name
+  一级分类ID：ParentID
+  状态：Status
+
+
+22.获取字典数据
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/GetDictionaryByCode
+ 
+  编码：Code   //剂型：DosageForm   单位： unit  等等
+
+
+23.修改密码
+   
+  访问地址: 192.168.1.222：8006/MobileApi/UserUpdate
+  
+  当前用户：UserId
+    旧密码：OldPwd
+   新密码1：NewPwd1
+   新密码2：NewPwd2
+
+
+24.删除药品分类 
+    访问地址: 192.168.1.222：8006/MobileApi/DeleteDrugCategory
+
+   数据主键：keyValue
+
+
+
+
+
+
+25.收入单/支出单列表
+ 访问地址: 192.168.1.222：8006/MobileApi/GetFinancials
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   数据类型：Category  //1:收入单 2：支出单
+ 
+26.保存收入单/支出单
+
+  访问地址: 192.168.1.222：8006/MobileApi/SaveFinancial
+  数据主键：keyValue  //keyValue =""为添加   keyValue !="" 为编辑
+  数据类型：Category  //1:收入单 2：支出单
+  名称：Name
+  金额: Amount
+  描述: Note
+  费用类型: TypeID
+  交易时间: OperateDate
+  当前用户：UserId
+
+27.删除收入单/支出单
+ 访问地址: 192.168.1.222：8006/MobileApi/DeleteFinancial
+
+   数据主键：keyValue
+
+
+28.结转列表
+ 访问地址: 192.168.1.222：8006/MobileApi/GetFinancialClearings
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+29.保存费用结转
+
+  访问地址: 192.168.1.222：8006/MobileApi/SaveFinancialClearing
+  开始时间：StartTime
+  结束时间: EndTime
+  费用明细: Name
+  费用类型: Category
+  当前用户：UserId
+
+30.删除费用结转
+ 访问地址: 192.168.1.222：8006/MobileApi/DeleteFinancialClearing
+
+   数据主键：keyValue   //主键ID 取CID的值
+
+
+31.费用单类型 //收入单/支出单
+ 访问地址: 192.168.1.222：8006/MobileApi/GetFinancialType
+
+
+
+32.首页数据统计
+ 访问地址: 192.168.1.222：8006/MobileApi/GetIndexStatics
+
+
+33./销售订单明细 /销售退单明细
+
+
+  访问地址: 192.168.1.222：8006/MobileApi/GetDrugOrderDetail
+
+   行数：pagesize
+
+  当前行 ：pagenumber
+
+  数据类型：IsReturn //0:销售订单 1：销售退单
+  模糊查询值：keyValue
+  开始时间: StartTime
+  结束时间: EndTime
+  药品名称: DrugName
+  简称: SimpleSpell
+  订单编号：OrderCode
+  药品类型: DrugCategoryID
+
+
+34.根据订单查询明细
+ 访问地址: 192.168.1.222：8006/MobileApi/GetOrderDetailByCode
+
+"id": "b133a9d7-e052-4a9b-88ce-357dba2f77e1",
+            "orderID": "ad0a1858-ea8b-4e6b-babe-4abf90318998",
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   订单ID：OrderID
+
+
+
+35.结转添加查询列表
+ 访问地址: 192.168.1.222：8006/MobileApi/GetSelectFinanciaJson
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   开始：StartTime
+   结束：EndTime
+  费用明细：Name
+ 费用类型：Type
+
+  
+
+36. 出库管理-查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugOutQuery
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+
+37. 出库管理 -明细查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugOutQueryDetail
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   出库单ID：DrugOutStorageID
+
+
+38. 出库单录入 -库存查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/GetDrugInByWhere
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+39.出库单录入
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/DrugOut
+
+  出库单编号：Code
+  出库类型：TypeID
+  备注：Remark
+  出库人：UserId
+
+  出库字表信息  List   //json数组
+    药品仓库ID：DrugStorageID //就是选择药品时候返回的id
+    数量：DrugCount
+    零售价：Amount
+    有效期至：ValidityDate
+    数量：DrugCount
+    生产批号：ProductionNumber
+    生产日期：ProductionDate
+    备注说明：Description
+
+
+
+40. 盘点管理-查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugCheckQuery
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+
+41. 盘点管理 -明细查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugCheckQueryDetail
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   盘点单ID：CheckId
+
+
+42. 盘点单录入 -库存查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/GetDrugInByWhere
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   仓库ID: StorageID
+
+43.盘点单录入
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/DrugCheck
+
+  盘存单编号：Code
+  仓库ID：StorageCategoryID
+  备注：Remark
+  盘点人：UserId
+
+  出库字表信息  List   //json数组
+    药品ID：DrugID
+    生产批号：ProductionNumber
+    实际数量：SystemCount
+    库存数量：ActualCount
+    备注：Remark
+
+
+
+44. 报损管理-查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugBreakageQuery
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+
+45. 报损管理 -明细查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugBreakageQueryDetail
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   报损单ID：BreakageID
+
+
+46. 报损单录入 -库存查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/GetDrugInByWhere
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+
+47.报损单录入
+ 
+  访问地址: 192.168.1.222：8006/MobileApi/DrugBreakage
+
+  盘存单编号：Code
+  备注：Remark
+  报损人：UserId
+
+  出库字表信息  List   //json数组
+    仓库ID：StorageCategoryID
+    药品ID：DrugID
+    生产批号：ProductionNumber
+    生产日期：ProductionDate
+    有效期至：ValidityDate
+    报损数量: DrugCount
+    备注：Description
+
+
+
+
+48. 药品库存查询
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugStorageQuery
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+   药品条码：BarCode
+   药品编码:DrugCode
+   药品名称:DrugName
+   简称：SimpleSpell
+
+
+
+49. 药品有效期
+
+ 访问地址: 192.168.1.222：8006/MobileApi/DrugDateQuery
+
+     行数：pagesize
+
+  当前行 ：pagenumber
+
+   查询值：keyValue
+
+
+50 销售订单统计
+
+ 访问地址: 192.168.1.222：8006/MobileApi/GetDrugOrderStatics
+
+
+    统计类型：typeid
+    年份：year
+    月份：month
+
+51 药品库存统计
+
+ 访问地址: 192.168.1.222：8006/MobileApi/GetDrugWarehouseStatics
+
+
+    统计类型：typeid
+    年份：year
+    月份：month
+
+52 财务统计
+
+ 访问地址: 192.168.1.222：8006/MobileApi/GetDrugFinancialStatics
+
+
+    统计类型：typeid
+    年份：year
+    月份：month
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
